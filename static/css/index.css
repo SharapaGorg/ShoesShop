@@ -6,6 +6,10 @@
     border-radius: 0 0 10px 0;
 }
 
+.content {
+    display : flex;
+}
+
 .category {
     border-radius: 0 0 10px 0;
 }
@@ -15,4 +19,8 @@
     color: black;
 }
 
-.content {}
+.content {
+    width : calc(100% - 200px);
+    height : 100px;
+    border-bottom: 1px solid rgb(247, 241, 241);
+}
