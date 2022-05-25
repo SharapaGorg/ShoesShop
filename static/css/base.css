@@ -2,19 +2,20 @@ html {
     width : 100vw;
     height : 100vh;
     background : #28cb59;
-    color : rgb(224, 224, 224);
+    color : rgb(247, 241, 241);
 }
 
 .logo {
     padding : 10px 30px;
     height : 60px;
     width : fit-content;
-    border-right : 1px solid rgb(224, 224, 224);
+    border-right : 1px solid rgb(247, 241, 241);
 }
 
 .search {
     height : 60px;
-    width : 100px;
+    width : fit-content;
+    border-right : 1px solid rgb(247, 241, 241);
 }
 
 .search input {
@@ -22,13 +23,23 @@ html {
     color : #2f3136;
 }
 
+.account-button {
+    border-left : 1px solid rgb(247, 241, 241);
+    border-right : 1px solid rgb(247, 241, 241);
+    height : 60px;
+}
+
 .line {
     height : 1px;
     width : 100%;
-    background : rgb(224, 224, 224);
+    background : rgb(247, 241, 241);;
 }
 
-nav {
+.navbar {
     height : 60px;
     width : 100%;
+}
+
+.trash {
+    height : 60px;
 }

@@ -47,5 +47,4 @@ def shoes():
 
     return jsonify(shoes)
 
-
 app.run(host=HOST, port=PORT, debug=True)

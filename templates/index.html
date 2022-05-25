@@ -1,11 +1,28 @@
-<div class="content">
+<div>
     {% extends 'base.html' %}
 
     {% block content %}
 
-    <div></div>
+    <ul class="sidebar inline-block">
+        <div class="text-2xl font-bold pl-3 pb-2">Categories</div>
+
+        <li class="px-4 py-1 cursor-pointer category font-bold">
+            Sport
+        </li>
+        <li class="px-4 py-1 cursor-pointer category font-bold">
+            Football
+        </li>
+        <li class="px-4 py-1 cursor-pointer category font-bold">
+            BasketBall
+        </li>
+        <li class="px-4 py-1 cursor-pointer category font-bold">
+            Training & Gym
+        </li>
+    </ul>
+
+    <div class="content inline-block">
+        HI
+    </div>
 
     {% endblock %}
 </div>
-
-<link rel="stylesheet" href="../css/index.css">
