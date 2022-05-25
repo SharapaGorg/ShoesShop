@@ -11,3 +11,7 @@
 ``` $ python3 main.py --dev```
 
 ``` $ python3 main.py --prod```
+
+### Design template (possibly)
+
+https://www.delivery-club.ru/moscow

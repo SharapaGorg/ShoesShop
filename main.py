@@ -1,8 +1,10 @@
-from ast import arg
 from sys import argv
 from utils import logger
 from flask import Flask, render_template
-import os
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
 
 if len(argv) <= 1:
     logger.warning('Using : python3 main.py --dev | --prod')
@@ -13,8 +15,6 @@ if argv[1] == '--prod':
 
 if argv[1] == '--dev':
     HOST, PORT = 'localhost', 9090
-
-app = Flask(__name__)
 
 @app.get('/index')
 def root():
