@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %} - FlaskApp</title>
-    <style>
-        nav a {
-            color: #d64161;
-            font-size: 3em;
-            margin-left: 50px;
-            text-decoration: none;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>ShoesShop</title>
 </head>
 <body>
     <nav>
-        <a href="#">FlaskApp</a>
-        <a href="#">About</a>
+        <div class="logo inline-block">
+            <span class="text-3xl font-bold">Shit</span>
+        </div>
+
+        <div class="search inline-block">
+            <input class="h-full " placeholder="айрфорс цвета капусты"/>
+        </div>
     </nav>
-    <hr>
+
+    <div class="line"></div>
+
     <div class="content">
         {% block content %} {% endblock %}
     </div>
