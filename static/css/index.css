@@ -1,5 +1,6 @@
 .sidebar {
     width: 200px;
+    height: 3000px;
     border-right: 1px solid rgb(247, 241, 241);
     border-left: 1px solid rgb(247, 241, 241);
     border-bottom: 1px solid rgb(247, 241, 241);
@@ -23,4 +24,25 @@
     width : calc(100% - 200px);
     height : 100px;
     border-bottom: 1px solid rgb(247, 241, 241);
+}
+.img_product{
+    position: relative;
+}
+.products{
+    margin-top: 90px;
+    vertical-align: top;
+    width: 100%;
+    display: inline-block;
+    margin-left: -70px;
+}
+.product{
+    width: 30%;
+    margin:10px;
+    display: inline-block;
+    padding: 5px;
+    border: 1px gray solid;
+}
+.product_line{
+    display: block;
+    font-weight: 700;
 }
