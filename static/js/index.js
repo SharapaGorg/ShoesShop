@@ -14,6 +14,18 @@ function resetColor() {
     }
 }
 
+let lastInputData = localStorage.getItem('inputData')
+
+function getSearchData() {
+    let inputData = localStorage.getItem('inputData')
+
+    if (inputData !== lastInputData) {
+        console.log('Search: ', inputData)
+
+        lastInputData = inputData
+    }
+}
+
 for (let category of categories) {
     category.addEventListener("click", () => {
         selectedCategory = category.innerText.toLowerCase()
@@ -39,6 +51,7 @@ function capitalize(string) {
 }
 
 
+// FIGURE PRODUCT CELL
 function getProduct(imgSrc, category, title, price) {
     let wrapper = createElement("div", "product")
     let image = createElement("img", "img_product mx-auto")
@@ -66,7 +79,7 @@ function getProduct(imgSrc, category, title, price) {
     headersWrapper.appendChild(price_)
 
     return wrapper
-}   
+}
 
 // RENDER PRODUCT LIST (no-lazy)
 async function renderShoes() {
@@ -75,8 +88,8 @@ async function renderShoes() {
 
     let resp = await fetch(url, {
         method: 'POST',
-        body : JSON.stringify({
-            category : selectedCategory
+        body: JSON.stringify({
+            category: selectedCategory
         })
     });
 
@@ -89,7 +102,7 @@ async function renderShoes() {
         shoe = response[i]
         let base = "static/assets/example.jpg"
 
-        const product = getProduct(shoe['img'], shoe.category, shoe.title, shoe.price)
+        const product = getProduct(shoe.img, shoe.category, shoe.title, shoe.price)
         products.appendChild(product)
 
     }
@@ -97,3 +110,5 @@ async function renderShoes() {
 
 
 renderShoes()
+// monitor search field
+setInterval(getSearchData, 500)

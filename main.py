@@ -41,8 +41,6 @@ def shoes():
     """
     data = loads(request.get_data())
 
-    print(data)
-
     category : str = data.get('category')
 
     _shoes = get_shoes(database, category)
