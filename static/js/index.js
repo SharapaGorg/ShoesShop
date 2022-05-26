@@ -22,6 +22,8 @@ function getSearchData() {
     if (inputData !== lastInputData) {
         console.log('Search: ', inputData)
 
+        renderShoes(inputData)
+
         lastInputData = inputData
     }
 }
@@ -82,13 +84,14 @@ function getProduct(imgSrc, category, title, price) {
 }
 
 // RENDER PRODUCT LIST (no-lazy)
-async function renderShoes() {
+async function renderShoes(title) {
     let products = document.getElementById("products")
     products.innerHTML = ""
 
     let resp = await fetch(url, {
         method: 'POST',
         body: JSON.stringify({
+            title : title,
             category: selectedCategory
         })
     });
@@ -109,6 +112,6 @@ async function renderShoes() {
 }
 
 
-renderShoes()
+renderShoes('all')
 // monitor search field
 setInterval(getSearchData, 500)

@@ -42,8 +42,9 @@ def shoes():
     data = loads(request.get_data())
 
     category : str = data.get('category')
+    title : str = data.get('title')
 
-    _shoes = get_shoes(database, category)
+    _shoes = get_shoes(database, category, title)
     shoes = list()
 
     for shoe in _shoes:
