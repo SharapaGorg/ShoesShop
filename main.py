@@ -40,7 +40,8 @@ def shoes():
         shoe = {
             'title': shoe.title,
             'price': shoe.price,
-            'category': shoe.category
+            'category': shoe.category,
+            'img' : shoe.img_src
         }
 
         shoes.append(shoe)

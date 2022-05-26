@@ -1,15 +1,79 @@
 url = "/api/shoes"
 
-async function render_shoes() {
-    // render all shoes in  no-lazy mode
-    let parents = document.getElementById("products")
+
+// SIDEBAR ACTIONS
+let selectedCategory = '*'
+let categories = document.getElementsByClassName('category')
+
+function resetColor() {
+    for (let category of categories) {
+        if (category.innerText.toLowerCase() !== selectedCategory) {
+            category.style.background = ''
+            category.style.color = ''
+        }
+    }
+}
+
+for (let category of categories) {
+    category.addEventListener("click", () => {
+        selectedCategory = category.innerText.toLowerCase()
+
+        category.style.background = 'rgb(247, 241, 241)'
+        category.style.color = 'black'
+
+        resetColor()
+    })
+}
+
+function createElement(tagName, className) {
+    let element = document.createElement(tagName)
+    element.className = className
+
+    return element
+}
+
+function getProduct(imgSrc, category, title, price) {
+    let wrapper = createElement("div", "product")
+    let image = createElement("img", "img_product mx-auto")
+    let category_ = createElement("span", "cat_product ")
+    let title_ = createElement("span", "text-3xl font-bold title_product")
+    let price_ = createElement("span", "price_product text-2xl")
+
+    image.src = imgSrc
+    category_.innerText = category
+    title_.innerText = title
+    price_.innerText = price + ' rub'
+
+    let headersWrapper = createElement("div", "px-2 py-1")
+    let imageWrapper = createElement("div", "img_product_wrapper")
+
+    imageWrapper.appendChild(image)
+
+    wrapper.appendChild(imageWrapper)
+    wrapper.appendChild(headersWrapper)
+
+    headersWrapper.appendChild(title_)
+    headersWrapper.innerHTML += '<br>'
+    headersWrapper.appendChild(category_)
+    headersWrapper.innerHTML += '<br>'
+    headersWrapper.appendChild(price_)
+
+    return wrapper
+}   
+
+// RENDER PRODUCT LIST (no-lazy)
+async function renderShoes() {
+    let products = document.getElementById("products")
 
     let resp = await fetch(url);
     let response = await resp.json();
 
     for (let i = 0; i < response.length; i++) {
         shoe = response[i]
-        parents.innerHTML += '<div class="product"><img src="static/assets/example.jpg" class="img_product"><span class="type_product product_line">' + shoe["category"] + '"</span><span class="name_product product_line">' + shoe["title"] + '</span><span class="price_product product_line">' + shoe["price"] + '</span></div>';
+        let base = "static/assets/example.jpg"
+
+        const product = getProduct(shoe['img'], shoe.category, shoe.title, shoe.price)
+        products.appendChild(product)
 
     }
     let result = document.getElementById("result")
@@ -17,6 +81,4 @@ async function render_shoes() {
 }
 
 
-
-
-render_shoes()
+renderShoes()

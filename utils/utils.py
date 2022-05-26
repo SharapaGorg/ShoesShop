@@ -32,13 +32,14 @@ class Shoe(Base):
     title = Column(String, nullable=False)
     price = Column(Float, nullable=False)
     category = Column(String, nullable=False)
+    img_src = Column(String, nullable=True)
 
 
-def add_shoe(_session: Session, title: str, price: float, category: str) -> Shoe:
+def add_shoe(_session: Session, title: str, price: float, category: str, img_src : str) -> Shoe:
     shoe = Shoe(title=title,
                 price=price,
-                category=category)
-
+                category=category,
+                img_src = img_src)
     _session.add(shoe)
     _session.commit()
 
