@@ -46,8 +46,11 @@ def add_shoe(_session: Session, title: str, price: float, category: str, img_src
     return shoe
 
 
-def get_shoes(_session: Session) -> list:
+def get_shoes(_session: Session, category : str) -> list:
     shoes = select(Shoe)
+
+    if category and category != 'all':
+        shoes = shoes.where(Shoe.category == category)
 
     return _session.scalars(shoes)
 

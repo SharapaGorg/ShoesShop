@@ -2,6 +2,7 @@ from sys import argv
 from utils import logger
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
+from json import loads
 
 from utils.config import LINK
 from utils.utils import *
@@ -26,14 +27,25 @@ else:
     exit()
 
 
-@app.route('/index', methods=['GET'])
+@app.route('/', methods=['GET'])
 def root():
     return render_template('index.html')
 
 
 @app.route('/api/shoes', methods=['GET', 'POST'])
 def shoes():
-    _shoes = get_shoes(database)
+    """
+    
+    category : str - category of shoes
+
+    """
+    data = loads(request.get_data())
+
+    print(data)
+
+    category : str = data.get('category')
+
+    _shoes = get_shoes(database, category)
     shoes = list()
 
     for shoe in _shoes:

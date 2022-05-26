@@ -2,7 +2,7 @@ url = "/api/shoes"
 
 
 // SIDEBAR ACTIONS
-let selectedCategory = '*'
+let selectedCategory = 'all'
 let categories = document.getElementsByClassName('category')
 
 function resetColor() {
@@ -18,6 +18,8 @@ for (let category of categories) {
     category.addEventListener("click", () => {
         selectedCategory = category.innerText.toLowerCase()
 
+        renderShoes()
+
         category.style.background = 'rgb(247, 241, 241)'
         category.style.color = 'black'
 
@@ -31,6 +33,11 @@ function createElement(tagName, className) {
 
     return element
 }
+
+function capitalize(string) {
+    return string[0].toUpperCase() + string.slice(1)
+}
+
 
 function getProduct(imgSrc, category, title, price) {
     let wrapper = createElement("div", "product")
@@ -64,9 +71,19 @@ function getProduct(imgSrc, category, title, price) {
 // RENDER PRODUCT LIST (no-lazy)
 async function renderShoes() {
     let products = document.getElementById("products")
+    products.innerHTML = ""
 
-    let resp = await fetch(url);
+    let resp = await fetch(url, {
+        method: 'POST',
+        body : JSON.stringify({
+            category : selectedCategory
+        })
+    });
+
     let response = await resp.json();
+
+    let result = document.getElementById("result")
+    result.innerText = capitalize(selectedCategory) + " - " + response.length + " results"
 
     for (let i = 0; i < response.length; i++) {
         shoe = response[i]
@@ -76,8 +93,6 @@ async function renderShoes() {
         products.appendChild(product)
 
     }
-    let result = document.getElementById("result")
-    result.innerText += " [" + response.length + "]"
 }
 
 
