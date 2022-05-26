@@ -3,22 +3,25 @@ html {
     height : 100vh;
     background : #28cb59;
     color : rgb(247, 241, 241);
+    overflow : hidden;
 }
 
 .logo {
     padding : 10px 30px;
     height : 60px;
-    width : fit-content;
+    width : 200px;
+    text-align : center;
     border-right : 1px solid rgb(247, 241, 241);
 }
 
 .search {
     height : 60px;
-    width : fit-content;
+    width :  300px;
     border-right : 1px solid rgb(247, 241, 241);
 }
 
 .search input {
+    width :90%;
     outline : none;
     color : #2f3136;
 }

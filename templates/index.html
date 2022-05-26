@@ -18,11 +18,18 @@
         <li class="px-4 py-1 cursor-pointer category font-bold">
             Training & Gym
         </li>
+
     </ul>
 
-    <div class="content absolute ml-[200px] top-[61px] px-4 py-4">
-        <span class="text-3xl font-bold">Shoes</span>
+    <div class="content absolute ml-[200px] top-[61px]">
+        <div class="result absolute text-xl font-bold mt-2 px-4" id="result">
+            Result
+        </div>
+
+        <div class="products grid grid-cols-3 mt-[35px]" id="products"></div>
     </div>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
     {% endblock %}
 </div>
