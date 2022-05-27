@@ -20,8 +20,6 @@ function getSearchData() {
     let inputData = localStorage.getItem('inputData')
 
     if (inputData !== lastInputData) {
-        console.log('Search: ', inputData)
-
         renderShoes(inputData)
 
         lastInputData = inputData
@@ -35,7 +33,7 @@ for (let category of categories) {
         renderShoes()
 
         category.style.background = 'rgb(247, 241, 241)'
-        category.style.color = 'black'
+        category.style.color = '#27a74d'
 
         resetColor()
     })

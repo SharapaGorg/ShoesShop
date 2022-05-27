@@ -37,12 +37,17 @@ def shoes():
     """
     
     category : str - category of shoes
+    title : str
+    sort : dict = {
+        price : 'low-high' | 'high-low'
+    }
 
     """
     data = loads(request.get_data())
 
     category : str = data.get('category')
     title : str = data.get('title')
+    sort : dict = data.get('sort')
 
     _shoes = get_shoes(database, category, title)
     shoes = list()
@@ -56,6 +61,11 @@ def shoes():
         }
 
         shoes.append(shoe)
+
+    if sort and sort.get('price') == 'low-high':
+        sort = shoes.sort(key=lambda x : x['price'])
+    if sort and sort.get('price') == 'high-low':
+        sort = shoes.sort(key=lambda x : x['price'], reverse=True)
 
     return jsonify(shoes)
 
