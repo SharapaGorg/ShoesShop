@@ -19,8 +19,8 @@
             <input 
                 id="search"
                 onkeydown="activateSearching(this)"
-                class="py-2 px-4 ml-3 mr-4 relative top-[10px]" 
-                placeholder="Search" 
+                class="rounded-md py-2 px-4 ml-3 mr-4 relative top-[10px]" 
+                placeholder="айрфорс цвета капусты" 
                 autocomplete="off"/>
         </div>
 
@@ -29,7 +29,7 @@
         <div class="inline-block trash float-right px-3">
             <svg class="mt-2 cursor-pointer basket-logo" fill='rgb(247, 241, 241)' height=40 width=40 version="1.1"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink"
-                enable-background="new 0 0 512 512">
+                enable-background="new 0 0 512 512" id="open_bin">
                 <g>
                     <g>
                         <path
@@ -45,7 +45,28 @@
             </svg>
 
         </div>
-
+        <div class="bin hidden" id="bin">
+            <span class="close_bin" id="close_bin">X</span>
+            <div class="chosen_products" id="chosen_products"></div>
+            <div class="price" id="price">0 Р</div>
+            <div class="open_registration" id="open_registration">Оформить заказ</div>
+        </div>
+        <div class="registration hidden">
+            <div class="chosen_products"></div>
+            <div class="regist_r hidden" id="regist_form">
+            <span class="zerkal_article">Запись</span>
+            <span class="crist" id="crist">✕</span>
+            <input type="text" class="register_input point" placeholder="Имя" id="name">
+            <div class="wrong_input hidden " id="no_name">Введите имя</div>
+            <div class="register_input">
+            <span><img src="russia.png" class="russia" alt=""></span>
+            <span class="sem">+7</span>
+            <input type="tel"  class="bigsem point" placeholder="(987)654-32-10"></div>
+            <div class="wrong_input hidden" id="wrongphone">Номер телефона введен некорректно</div>
+            <span class="uslugi">Комментарий</span>
+            <textarea type="text" class="register_input" id="comment"></textarea>
+            <div class="sending point" id="sending">ОТПРАВИТЬ</div>
+        </div>
         <div class="inline-block float-right account-button px-3">
             <svg fill='rgb(247, 241, 241)' class="mt-2 cursor-pointer account-logo" height=40 width=40 version="1.1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -66,6 +87,7 @@
     </div>
 
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/js.js') }}"></script>
 </body>
 
 </html>
