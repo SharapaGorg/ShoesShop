@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+
 .sidebar {
     width: 200px;
     height: 90vh;
@@ -105,4 +115,25 @@
     color: rgb(247, 241, 241);
     background: #28cb59;
     border: 2px solid rgb(247, 241, 241);
+}
+
+.auth-wrapper {
+    display : none;
+    background : rgba(0, 0, 0, 0.5);
+}
+
+.auth {
+    border-radius: 10px;
+    width : 300px;
+    height : 500px;
+    background : #28cb59;
+    padding : 5px 10px;
+    border : 1px solid rgb(247, 241, 241);
+    display : none;
+}
+
+.cross {
+    cursor : pointer;
+    float : right;
+    color : white;
 }

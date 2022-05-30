@@ -16,4 +16,5 @@ function activateSearching(elem) {
         elem.value = ""
     }
 }
+
 setInterval(monitorValue, 500)

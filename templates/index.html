@@ -3,35 +3,44 @@
 
     {% block content %}
 
-    <ul class="sidebar inline-block">
-        <div class="text-2xl font-bold pl-3 pb-2">Categories</div>
+</div>
 
-        <li class="px-4 py-1 cursor-pointer category font-bold">
-            Sport
-        </li>
-        <li class="px-4 py-1 cursor-pointer category font-bold">
-            Football
-        </li>
-        <li class="px-4 py-1 cursor-pointer category font-bold">
-            BasketBall
-        </li>
-        <li class="px-4 py-1 cursor-pointer category font-bold">
-            Training & Gym
-        </li>
+<ul class="sidebar inline-block">
+    <div class="text-2xl font-bold pl-3 pb-2">Categories</div>
 
-    </ul>
+    <li class="px-4 py-1 cursor-pointer category font-bold">
+        Sport
+    </li>
+    <li class="px-4 py-1 cursor-pointer category font-bold">
+        Football
+    </li>
+    <li class="px-4 py-1 cursor-pointer category font-bold">
+        BasketBall
+    </li>
+    <li class="px-4 py-1 cursor-pointer category font-bold">
+        Training & Gym
+    </li>
 
-    <div class="content absolute ml-[200px] top-[61px]">
-        <div class="result absolute text-xl font-bold mt-2 px-4 inline-block" id="result">
-            Result
-        </div>
+</ul>
 
-        <div class="inline-block absolute right-[10px] sort cursor-pointer px-2 py-1">Sort by</div>
-
-        <div class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-[35px]" id="products"></div>
+<div class="content absolute ml-[200px] top-[61px]">
+    <div class="result absolute text-xl font-bold mt-2 px-4 inline-block" id="result">
+        Result
     </div>
 
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <div class="inline-block absolute right-[10px] sort cursor-pointer px-2 py-1">Sort by</div>
 
-    {% endblock %}
+    <div class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-[35px]" id="products"></div>
+</div>
+
+<div class="auth-wrapper fixed pt-[45px] top-0 w-screen h-screen" id="authWrapper">
+    <div class="auth mx-auto" id="authForm">
+        <div class="cross noselect" id="cross">╳</div>
+
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+{% endblock %}
 </div>

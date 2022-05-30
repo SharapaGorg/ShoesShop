@@ -1,6 +1,11 @@
 url = "/api/shoes"
 
 
+// MOUNTED
+window.addEventListener('load', () => {
+    //
+});
+
 // SIDEBAR ACTIONS
 let selectedCategory = 'all'
 let categories = document.getElementsByClassName('category')
@@ -109,6 +114,23 @@ async function renderShoes(title) {
     }
 }
 
+// AUTH MODAL WINDOW
+let accountButton = window.document.getElementById("account")
+let authWrapper = document.getElementById("authWrapper")
+let authForm = document.getElementById("authForm")
+let cross = document.getElementById("cross")
+
+// activate auth form
+accountButton.addEventListener("click", () => {
+    authWrapper.style.display = 'block'
+    authForm.style.display = 'block'
+})
+
+// hidden auth form
+cross.addEventListener("click", () => {
+    authWrapper.style.display = 'none'
+    authForm.style.display = 'none'
+})
 
 renderShoes('all')
 // monitor search field
