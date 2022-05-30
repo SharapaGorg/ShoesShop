@@ -94,7 +94,7 @@ async function renderShoes(title) {
     let resp = await fetch(url, {
         method: 'POST',
         body: JSON.stringify({
-            title : title,
+            title: title,
             category: selectedCategory
         })
     });
@@ -130,6 +130,30 @@ accountButton.addEventListener("click", () => {
 cross.addEventListener("click", () => {
     authWrapper.style.display = 'none'
     authForm.style.display = 'none'
+})
+
+// form switching
+let signInButton = document.getElementById("signInButton")
+let signUpButton = document.getElementById("signUpButton")
+let signInContent = document.getElementById("signIn")
+let signUpContent = document.getElementById("signUp")
+
+// show sign-in form
+signInButton.addEventListener("click", () => {
+    signInContent.style.display = 'block'
+    signUpContent.style.display = 'none'
+
+    signInButton.classList.add("underline")
+    signUpButton.classList.remove("underline")
+})
+
+// show sign-up form
+signUpButton.addEventListener("click", () => {
+    signInContent.style.display = 'none'
+    signUpContent.style.display = 'block'
+
+    signUpButton.classList.add("underline")
+    signInButton.classList.remove("underline")
 })
 
 renderShoes('all')

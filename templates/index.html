@@ -37,6 +37,38 @@
     <div class="auth mx-auto" id="authForm">
         <div class="cross noselect" id="cross">╳</div>
 
+        <div>
+            <div class="sign-in" id="signIn">
+                <div class="sign-in-content">
+                    <div class="field-header">Email</div>
+                    <input class='field' autocomplete="off" id='emailLog' type='text'/>
+                    <div class="field-header">Password</div>
+                    <input class='field' autocomplete="off" id='passwordLog' type='password'/>
+
+                    <div class="submit noselect" id="authorize">Sign In</div>
+                </div>
+            </div>
+            <div class="sign-up" id="signUp">
+                <div class="sign-up-content">
+                    <div class="field-header">Fullname</div>
+                    <input class='field' autocomplete="off" id='something' type='text'/>
+                    <div class="field-header">Email</div>
+                    <input class='field' autocomplete="off" id='emailReg' type='text'/>
+                    <div class="field-header">Password</div>
+                    <input class='field' autocomplete="off" id='passwordReg' type='password'/>
+                    <div class="field-header">Password again</div>
+                    <input class='field' autocomplete="off" id='passwordRegAgain' type='password'/>
+
+                    <div class="submit noselect" id="register">Sign Up</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="switchers grid grid-cols-3 justify-items-center">
+            <div class="switcher noselect font-bold underline" id="signUpButton">Sign up</div>
+            <div>|</div>
+            <div class="switcher noselect font-bold" id="signInButton">Sign in</div>
+        </div>
     </div>
 </div>
 

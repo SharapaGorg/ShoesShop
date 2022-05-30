@@ -137,3 +137,56 @@
     float : right;
     color : white;
 }
+
+
+.switcher {
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+}
+
+.sign-in {
+    display : none;
+    padding-top : 30px;
+}
+
+.sign-in-content {
+    height : 430px;
+}
+
+.sign-up {
+    display: block;
+    padding-top : 30px;
+}
+
+.sign-up-content {
+    height : 430px;
+}
+
+.field-header {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.field {
+    width: 100%;
+    border-radius: 5px;
+    outline : none;
+    padding-left : 7px;
+    color : black;
+    padding-top : 5px;
+    padding-bottom: 5px;
+    margin-bottom : 5px;
+}
+
+.submit {
+    border-radius: 5px;
+    padding : 2px 5px;
+    width : fit-content;
+    cursor: pointer;
+    margin-top : 7px;
+    border : 1px solid rgb(247, 241, 241);
+}
+
+.submit:hover {
+    background : rgb(247, 241, 241);
+    color : #28cb59;
+}
