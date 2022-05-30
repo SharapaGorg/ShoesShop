@@ -142,6 +142,12 @@
 .switcher {
     font-family: 'Ubuntu', sans-serif;
     cursor: pointer;
+    border-radius: 5px;
+}
+
+.activated-switcher {
+    background : rgb(247, 241, 241);
+    color : #28cb59;
 }
 
 .sign-in {
@@ -150,7 +156,7 @@
 }
 
 .sign-in-content {
-    height : 430px;
+    height : 420px;
 }
 
 .sign-up {
@@ -159,7 +165,7 @@
 }
 
 .sign-up-content {
-    height : 430px;
+    height : 420px;
 }
 
 .field-header {

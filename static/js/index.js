@@ -143,8 +143,8 @@ signInButton.addEventListener("click", () => {
     signInContent.style.display = 'block'
     signUpContent.style.display = 'none'
 
-    signInButton.classList.add("underline")
-    signUpButton.classList.remove("underline")
+    signInButton.classList.add('activated-switcher')
+    signUpButton.classList.remove('activated-switcher')
 })
 
 // show sign-up form
@@ -152,8 +152,22 @@ signUpButton.addEventListener("click", () => {
     signInContent.style.display = 'none'
     signUpContent.style.display = 'block'
 
-    signUpButton.classList.add("underline")
-    signInButton.classList.remove("underline")
+    signUpButton.classList.add('activated-switcher')
+    signInButton.classList.remove('activated-switcher')
+})
+
+// SIGN IN | SIGN UP
+let signIn = document.getElementById('authorize')
+let signUp = document.getElementById('register')
+
+// sign in
+signIn.addEventListener("click", () => {
+    //
+})
+
+// sign up
+signUp.addEventListener("click", () => {
+    //
 })
 
 renderShoes('all')
