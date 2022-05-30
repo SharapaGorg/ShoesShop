@@ -20,6 +20,8 @@ function getSearchData() {
     let inputData = localStorage.getItem('inputData')
 
     if (inputData !== lastInputData) {
+        console.log('Search: ', inputData)
+
         renderShoes(inputData)
 
         lastInputData = inputData
@@ -33,7 +35,7 @@ for (let category of categories) {
         renderShoes()
 
         category.style.background = 'rgb(247, 241, 241)'
-        category.style.color = '#27a74d'
+        category.style.color = 'black'
 
         resetColor()
     })
@@ -52,18 +54,17 @@ function capitalize(string) {
 
 
 // FIGURE PRODUCT CELL
-function getProduct(imgSrc, category, title, price) {
+function getProduct(imgSrc, category, title, price,id) {
     let wrapper = createElement("div", "product")
     let image = createElement("img", "img_product mx-auto")
     let category_ = createElement("span", "cat_product ")
     let title_ = createElement("span", "text-3xl font-bold title_product")
     let price_ = createElement("span", "price_product text-2xl")
-
     image.src = imgSrc
     category_.innerText = category
     title_.innerText = title
     price_.innerText = price + ' rub'
-
+    wrapper.id=id
     let headersWrapper = createElement("div", "px-2 py-1")
     let imageWrapper = createElement("div", "img_product_wrapper")
 
@@ -103,7 +104,7 @@ async function renderShoes(title) {
         shoe = response[i]
         let base = "static/assets/example.jpg"
 
-        const product = getProduct(shoe.img, shoe.category, shoe.title, shoe.price)
+        const product = getProduct(shoe.img, shoe.category, shoe.title, shoe.price,shoe.id)
         products.appendChild(product)
 
     }

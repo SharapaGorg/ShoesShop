@@ -19,8 +19,8 @@
             <input 
                 id="search"
                 onkeydown="activateSearching(this)"
-                class="py-2 px-4 ml-3 mr-4 relative top-[10px]" 
-                placeholder="Search" 
+                class="rounded-md py-2 px-4 ml-3 mr-4 relative top-[10px]" 
+                placeholder="айрфорс цвета капусты" 
                 autocomplete="off"/>
         </div>
 
@@ -29,7 +29,7 @@
         <div class="inline-block trash float-right px-3">
             <svg class="mt-2 cursor-pointer basket-logo" fill='rgb(247, 241, 241)' height=40 width=40 version="1.1"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink"
-                enable-background="new 0 0 512 512">
+                enable-background="new 0 0 512 512" id="open_bin">
                 <g>
                     <g>
                         <path
@@ -45,7 +45,72 @@
             </svg>
 
         </div>
+        <div class="bin hidden" id="bin">
+            <span class="close_bin" id="close_bin">X</span>
+            <div class="chosen_products" id="chosen_products"></div>
+            <div class="price" id="price">0 Р</div>
+            <div class="open_registration" id="open_registration">Оформить заказ</div>
+        </div>
+        <div class="deliver hidden" id="deliver_block_last">
+            <div class="m_ain_block">
+                <div class="v_verhnii_block">Доставка и Оплата <span class="crossLeft" id="crossLeft">✕</span></div>
 
+                <div class="h_e_ader big_t_ext toMakeLineBetter">Населенный пункт</div>
+                <div class="in_put"><span class="h_e_ader small_t_ext">Населенный пункт*</span><br><input type="text" class="i_n_put b_i_g_1" id="in_put" placeholder="Населенный пункт"><br><span class="big_t_ext"></span>
+                </div>
+                <div class="cities hidden" id="cities"></div>
+                <div class=hidden id="blockOfInf">
+                    <div class="hidden " id="adressOpen">
+                        <div class="i_nf toMakeLineBetter">Адрес доставки</div>
+                        <div>
+                            <div class="inputDiv BigInp">
+                                <span class="inputField">Улица*</span>
+                                <input type="text" class="i_n_put lineBig" placeholder="Например,тверская" id="street">
+                                <span class="wrongInput hidden" id="wrongStreetInput">Адресс введен некорректно</span>
+                            </div>
+                            <div class="inputDiv">
+                                <span class="inputField">Дом*</span>
+                                <input type="text" class="i_n_put lineBig" placeholder="Например,12А" id="house" pattern="[0-9]+">
+                                <span class="wrongInput hidden " id="wrongHouseInput">Номер дома введен некорректно</span></div>
+                            <div class="inputDiv">
+                                <span class="inputField ">Квартира*</span>
+                                <input type="text " class="i_n_put lineBig" placeholder="Например,11 " id="apartaments">
+                            </div>
+                            <span class="black-but2 butNew" id="adressConfirm">Подтвердить</span></div>
+                    </div></div>
+                    <div class="personality-input " id="reson_inp">
+                        <!-- <input type="text " class="i_n_put2 " placeholder="фамилия " id="surname"></input>
+                    <span id="wrongsurname" class="hidden ">фамилия введена некорректно</span>
+
+                    <input type="text " class="i_n_put2 " placeholder="имя " id="name"></input>
+                    <span id="wrongname" class="hidden ">имя введено некорректно</span> -->
+
+                        <span class="center1 toMakeLineBetter">Получатель </span></div>
+                    <div>
+                        <div class="inputDiv BigInp">
+                            <span class="inputField">Ф.И.О*</span>
+                            <input type="text " class="i_n_put lineBig" placeholder="Иван Иванович Иванов " id="patronymic">
+                            <span id="wrongname" class="hidden wrongInput">имя введено некорректно</span>
+                        </div>
+
+                        <div class="inputDiv">
+                            <span class="inputField">телефон*</span>
+                            <input type="phone " class="i_n_put lineBig" placeholder="79876543211 " id="phone">
+                            <span id="wrongphone" class="hidden wrongInput">номер телефона введен некорректно</span>
+                        </div>
+                        <div class="inputDiv">
+                            <span class="inputField">email*</span>
+                            <input type="text " class="i_n_put lineBig" placeholder="Test@mail.ru " id="email">
+                            <span id="wrongmail" class="hidden wrongInput">email введен некорректно</span></div>
+        </div><div class="AllwayseOnDisplay">
+            <span class="agreement padding-maker" id="agreement"><input type="checkbox">Я даю согласие на обработку персональных данных в соответствии с ФЗ "О применении контрольно-кассовой техники при осуществлении расчетов в РФ"</span>
+            <span class="wrongInput hidden" id="wrongAgreement">Необходимо подтвердить согласие</span>
+            <div class="yellowDisplayBig"><span>Итого:</span><br><span id="LastPrice"></span></div>
+            <span class="s_endButton last_but" id="sendButton">оформить заказ</span>
+            <div class="yellowDisplay higher"><span>Товары</span><span id="finalPrice" class="rightText"></span></div>
+            <div class="yellowDisplay morehigher"><span>Доставка</span><span id="finalDelivery" class="rightText2"></span></div>
+
+        </div></div></div>
         <div class="inline-block float-right account-button px-3">
             <svg fill='rgb(247, 241, 241)' class="mt-2 cursor-pointer account-logo" height=40 width=40 version="1.1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -66,6 +131,8 @@
     </div>
 
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/js.js') }}"></script>
+    <script src="{{ url_for('static', filename='validation/js.js') }}"></script>
 </body>
 
 </html>
