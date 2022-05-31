@@ -1,14 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 .noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-      -webkit-user-select: none; /* Safari */
-       -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Old versions of Firefox */
-          -ms-user-select: none; /* Internet Explorer/Edge */
-              user-select: none; /* Non-prefixed version, currently
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
-  }
+}
 
 .sidebar {
     width: 200px;
@@ -84,12 +90,12 @@
     font-family: 'Ubuntu', sans-serif;
     font-weight: 700;
     margin-top: 6px;
-    border : 1px solid rgb(247, 241, 241);
+    border: 1px solid rgb(247, 241, 241);
     border-radius: 5px;
 }
 
 .sort:hover {
-    background : rgb(247, 241, 241);
+    background: rgb(247, 241, 241);
     color: #27a74d;
 }
 
@@ -118,24 +124,24 @@
 }
 
 .auth-wrapper {
-    display : none;
-    background : rgba(0, 0, 0, 0.5);
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .auth {
     border-radius: 10px;
-    width : 300px;
-    height : 500px;
-    background : #28cb59;
-    padding : 5px 10px;
-    border : 1px solid rgb(247, 241, 241);
-    display : none;
+    width: 300px;
+    height: 500px;
+    background: #28cb59;
+    padding: 5px 10px;
+    border: 1px solid rgb(247, 241, 241);
+    display: none;
 }
 
 .cross {
-    cursor : pointer;
-    float : right;
-    color : white;
+    cursor: pointer;
+    float: right;
+    color: white;
 }
 
 
@@ -146,26 +152,26 @@
 }
 
 .activated-switcher {
-    background : rgb(247, 241, 241);
-    color : #28cb59;
+    background: rgb(247, 241, 241);
+    color: #28cb59;
 }
 
 .sign-in {
-    display : none;
-    padding-top : 30px;
+    display: none;
+    padding-top: 30px;
 }
 
 .sign-in-content {
-    height : 420px;
+    height: 420px;
 }
 
 .sign-up {
     display: block;
-    padding-top : 30px;
+    padding-top: 30px;
 }
 
 .sign-up-content {
-    height : 420px;
+    height: 420px;
 }
 
 .field-header {
@@ -175,24 +181,126 @@
 .field {
     width: 100%;
     border-radius: 5px;
-    outline : none;
-    padding-left : 7px;
-    color : black;
-    padding-top : 5px;
+    outline: none;
+    padding-left: 7px;
+    color: black;
+    padding-top: 5px;
     padding-bottom: 5px;
-    margin-bottom : 5px;
+    margin-bottom: 5px;
 }
 
 .submit {
     border-radius: 5px;
-    padding : 2px 5px;
-    width : fit-content;
+    padding: 2px 5px;
+    width: fit-content;
     cursor: pointer;
-    margin-top : 7px;
-    border : 1px solid rgb(247, 241, 241);
+    margin-top: 7px;
+    border: 1px solid rgb(247, 241, 241);
 }
 
 .submit:hover {
+    background: rgb(247, 241, 241);
+    color: #28cb59;
+}
+
+.bin-wrapper {
+    display: none;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.bin {
+    display: none;
+    background: #28cb59;
+    border-radius: 10px;
+    width: 360px;
+    height: 500px;
+    padding: 5px 10px;
+    border: 1px solid rgb(247, 241, 241);
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.add_to_bin {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(247, 241, 241);
+    background: rgb(247, 241, 241);
+    float: right;
+    color: #28cb59;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    position: relative;
+    bottom: 42px;
+    right: 10px;
+}
+
+.remove_from_bin {
+    width : fit-content;
+    font-family: 'Ubuntu', sans-serif;
     background : rgb(247, 241, 241);
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 700;
+    color: #28cb59;
+}
+
+.bin-list {
+    padding-top: 35px;
+    height : 450px;
+    overflow-y : auto;
+}
+
+.bin-item {
+    height: 100px;
+    width: 100%;
+    border-radius: 10px;
+    /* background: rgb(247, 241, 241); */
+    margin-bottom: 7px;
+}
+
+.bin-item-desc {
+    background: #28cb59;
+    border-radius: 5px;
+    width: 80%;
+    height: 80%;
+    margin-top: 10px;
+}
+
+.bin-item-title {
+    font-family: 'Ubuntu', sans-serif;
+    color: rgb(247, 241, 241);
+    font-weight: 700;
+}
+
+.bin-item-price {
+    color: rgb(247, 241, 241);
+    font-weight: 700;
+    margin : 5px 0;
+}
+
+.bin-img-wrapper {
+    border-radius: 10px;
+    width: 150px;
+    background: rgb(247, 241, 241);
+
+}    
+
+.bin-img {
+    height: 100px;
+}
+
+.order {
+    width : 100%;
+}
+
+.checkout {
+    background: rgb(247, 241, 241);
     color : #28cb59;
+    border-radius: 10px;
+    font-weight : 700;
+    width : fit-content;
+    cursor: pointer;
+    margin-top : 5px;
 }
