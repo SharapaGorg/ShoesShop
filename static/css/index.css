@@ -18,15 +18,11 @@
 
 .sidebar {
     width: 200px;
-    height: 90vh;
+    height: 100%;
     border-right: 1px solid rgb(247, 241, 241);
     border-left: 1px solid rgb(247, 241, 241);
     border-bottom: 1px solid rgb(247, 241, 241);
     border-radius: 0 0 10px 0;
-}
-
-.content {
-    display: flex;
 }
 
 .category {
@@ -41,9 +37,7 @@
 
 .content {
     width: calc(100% - 200px);
-    height: calc(100% - 61px);
     overflow-y: scroll;
-
 }
 
 .img_product {
@@ -61,8 +55,8 @@
 }
 
 .products {
-    vertical-align: top;
     width: 100%;
+    height : calc(90% - 61px);
 }
 
 .product {

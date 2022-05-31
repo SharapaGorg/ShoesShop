@@ -16,16 +16,12 @@
         </div>
 
         <div class="search inline-block top-[-14px] relative">
-            <input 
-                id="search"
-                onkeydown="activateSearching(this)"
-                class="py-2 px-4 ml-3 mr-4 relative top-[10px]" 
-                placeholder="Search" 
-                autocomplete="off"/>
+            <input id="search" onkeydown="activateSearching(this)" class="py-2 px-4 ml-3 mr-4 relative top-[10px]"
+                placeholder="Search" autocomplete="off" />
         </div>
 
         <span id="log"></span>
-        
+
         <div class="inline-block trash float-right px-3" id="bin">
             <svg class="mt-2 basket-logo" fill='rgb(247, 241, 241)' height=40 width=40 version="1.1"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -44,7 +40,7 @@
                 </g>
             </svg>
 
-        </div>    
+        </div>
 
         <div class="inline-block float-right account-button px-3" id="account">
             <svg fill='rgb(247, 241, 241)' class="mt-2 account-logo" height=40 width=40 version="1.1"
@@ -61,8 +57,22 @@
 
     <div class="line"></div>
 
-    <div>
-        {% block content %} {% endblock %}
+    <div class="overflow-y-auto" style="height : calc(100vh - 61px)">
+        <div>
+            {% block content %} {% endblock %}
+
+            <div class="footer grid grid-cols-3 justify-items-center">
+                <div class="contact">
+                    <img src="{{ url_for('static', filename='assets/telegram.png') }}" height=50 width=50 />
+                </div>
+                <div class="contact">
+                    <img src="{{ url_for('static', filename='assets/discord.png') }}" height=50 width=50 />
+                </div>
+                <div class="contact">
+                    <img src="{{ url_for('static', filename='assets/github.png') }}" height=50 width=50 />
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="{{ url_for('static', filename='js/base.js') }}"></script>

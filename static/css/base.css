@@ -37,7 +37,7 @@ html {
 .line {
     height : 1px;
     width : 100%;
-    background : rgb(247, 241, 241);;
+    background : rgb(247, 241, 241);
 }
 
 .navbar {
@@ -45,7 +45,37 @@ html {
     width : 100%;
 }
 
+
+.index {
+    height : 100%;
+    overflow-y: auto;
+}
+
+.footer {
+    /* background : black; */
+    height : 100px;
+    width : 100vw;
+    margin-top : 20px;
+    border-top : 1px solid rgb(247, 241, 241);   
+}
+
 .trash {
     height : 60px;
     cursor : pointer;
+}
+
+.contact {
+    margin-top : 15px;
+    border-radius: 50%;
+    height : 70px;
+    width : 70px;
+    cursor: pointer;
+    border: 1px solid rgb(247, 241, 241);
+}
+
+.contact img {
+    margin-left : auto;
+    margin-right : auto;
+    position : relative;
+    top : 10px;
 }

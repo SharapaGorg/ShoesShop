@@ -5,79 +5,81 @@
 
 </div>
 
-<ul class="sidebar inline-block">
-    <div class="text-2xl font-bold pl-3 pb-2">Categories</div>
-
-    <li class="px-4 py-1 cursor-pointer category font-bold">
-        Sport
-    </li>
-    <li class="px-4 py-1 cursor-pointer category font-bold">
-        Football
-    </li>
-    <li class="px-4 py-1 cursor-pointer category font-bold">
-        BasketBall
-    </li>
-    <li class="px-4 py-1 cursor-pointer category font-bold">
-        Training & Gym
-    </li>
-
-</ul>
-
-<div class="content absolute ml-[200px] top-[61px]">
-    <div class="result absolute text-xl font-bold mt-2 px-4 inline-block" id="result">
-        Result
-    </div>
-
-    <div class="inline-block absolute right-[10px] sort cursor-pointer px-2 py-1">Sort by</div>
-
-    <div class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-[35px]" id="products"></div>
-</div>
-
-<div class="bin-wrapper fixed pt-[45px] top-0 w-screen h-screen" id="binWrapper">
-    <div class="bin mx-auto" id="binForm">
-        <div class="cross noselect" id="crossBin">╳</div>
-        <div class="bin-list" id="binList"></div>
-        <div class="order">
-            <div class="checkout px-2 py-1 mx-auto" id="checkout">Checkout</div>
+<div class="overflow-y-auto">
+    <ul class="sidebar inline-block">
+        <div class="text-2xl font-bold pl-3 pb-2">Categories</div>
+    
+        <li class="px-4 py-1 cursor-pointer category font-bold">
+            Sport
+        </li>
+        <li class="px-4 py-1 cursor-pointer category font-bold">
+            Football
+        </li>
+        <li class="px-4 py-1 cursor-pointer category font-bold">
+            BasketBall
+        </li>
+        <li class="px-4 py-1 cursor-pointer category font-bold">
+            Training & Gym
+        </li>
+    
+    </ul>
+    
+    <div class="content relative inline-block float-right h-full">
+        <div class="result absolute text-xl font-bold mt-2 px-4 inline-block" id="result">
+            Result
         </div>
+    
+        <div class="inline-block absolute right-[10px] sort cursor-pointer px-2 py-1">Sort by</div>
+    
+        <div class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-[35px]" id="products"></div>
     </div>
-</div>
-
-<div class="auth-wrapper fixed pt-[45px] top-0 w-screen h-screen" id="authWrapper">
-    <div class="auth mx-auto" id="authForm">
-        <div class="cross noselect" id="crossAuth">╳</div>
-
-        <div>
-            <div class="sign-in" id="signIn">
-                <div class="sign-in-content">
-                    <div class="field-header">Email</div>
-                    <input class='field' id='emailLog' type='text' />
-                    <div class="field-header">Password</div>
-                    <input class='field' id='passwordLog' type='password' />
-
-                    <div class="submit noselect" id="authorize">Sign In</div>
-                </div>
-            </div>
-            <div class="sign-up" id="signUp">
-                <div class="sign-up-content">
-                    <div class="field-header">ФИО</div>
-                    <input class='field' id='regName' type='text' />
-                    <div class="field-header">Email</div>
-                    <input class='field' id='emailReg' type='text' />
-                    <div class="field-header">Password</div>
-                    <input class='field' id='passwordReg' type='password' />
-                    <div class="field-header">Password again</div>
-                    <input class='field' id='passwordRegAgain' type='password' />
-
-                    <div class="submit noselect" id="register">Sign Up</div>
-                </div>
+    
+    <div class="bin-wrapper fixed pt-[45px] top-0 w-screen h-screen" id="binWrapper">
+        <div class="bin mx-auto" id="binForm">
+            <div class="cross noselect" id="crossBin">╳</div>
+            <div class="bin-list" id="binList"></div>
+            <div class="order">
+                <div class="checkout px-2 py-1 mx-auto" id="checkout">Checkout</div>
             </div>
         </div>
-
-        <div class="switchers grid grid-cols-3 justify-items-center">
-            <div class="switcher noselect font-bold px-2 py-1 activated-switcher" id="signUpButton">Sign up</div>
-            <div>|</div>
-            <div class="switcher noselect font-bold px-2 py-1" id="signInButton">Sign in</div>
+    </div>
+    
+    <div class="auth-wrapper fixed pt-[45px] top-0 w-screen h-screen" id="authWrapper">
+        <div class="auth mx-auto" id="authForm">
+            <div class="cross noselect" id="crossAuth">╳</div>
+    
+            <div>
+                <div class="sign-in" id="signIn">
+                    <div class="sign-in-content">
+                        <div class="field-header">Email</div>
+                        <input class='field' id='emailLog' type='text' />
+                        <div class="field-header">Password</div>
+                        <input class='field' id='passwordLog' type='password' />
+    
+                        <div class="submit noselect" id="authorize">Sign In</div>
+                    </div>
+                </div>
+                <div class="sign-up" id="signUp">
+                    <div class="sign-up-content">
+                        <div class="field-header">ФИО</div>
+                        <input class='field' id='regName' type='text' />
+                        <div class="field-header">Email</div>
+                        <input class='field' id='emailReg' type='text' />
+                        <div class="field-header">Password</div>
+                        <input class='field' id='passwordReg' type='password' />
+                        <div class="field-header">Password again</div>
+                        <input class='field' id='passwordRegAgain' type='password' />
+    
+                        <div class="submit noselect" id="register">Sign Up</div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="switchers grid grid-cols-3 justify-items-center">
+                <div class="switcher noselect font-bold px-2 py-1 activated-switcher" id="signUpButton">Sign up</div>
+                <div>|</div>
+                <div class="switcher noselect font-bold px-2 py-1" id="signInButton">Sign in</div>
+            </div>
         </div>
     </div>
 </div>
