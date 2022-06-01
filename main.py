@@ -31,6 +31,21 @@ else:
 def root():
     return render_template('index.html')
 
+@app.route('/api/categories', methods=['GET', 'POST'])
+def categories():
+    _categories = get_categories(database)
+    categories = list()
+
+    for category in _categories:
+        category = {
+            'title' : category.title,
+            'id' : category.id
+        }
+
+        categories.append(category)
+
+    return jsonify(categories)
+
 
 @app.route('/api/shoes', methods=['GET', 'POST'])
 def shoes():

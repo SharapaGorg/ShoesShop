@@ -35,18 +35,41 @@ class Shoe(Base):
     img_src = Column(String, nullable=True)
 
 
-def add_shoe(_session: Session, title: str, price: float, category: str, img_src : str) -> Shoe:
+class Category(Base):
+    """
+
+    Category of shoes database model
+
+    id : int
+    title : str
+
+    """
+
+    __tablename__ = "categories"
+
+    id = Column(Integer, nullable=False, unique=True,
+                primary_key=True, autoincrement=True)
+    title = Column(String, nullable=False)
+
+
+def add_shoe(_session: Session, title: str, price: float, category: str, img_src: str) -> Shoe:
     shoe = Shoe(title=title,
                 price=price,
                 category=category,
-                img_src = img_src)
+                img_src=img_src)
     _session.add(shoe)
     _session.commit()
 
     return shoe
 
 
-def get_shoes(_session: Session, category : str, title : str) -> list:
+def add_category(_session : Session, title : str):
+    category = Category(title=title)
+    
+    _session.add(category)
+    _session.commit()
+
+def get_shoes(_session: Session, category: str, title: str) -> list:
     shoes = select(Shoe)
 
     if category and category != 'all':
@@ -57,6 +80,11 @@ def get_shoes(_session: Session, category : str, title : str) -> list:
 
     return _session.scalars(shoes)
 
+
+def get_categories(_session : Session) -> list:
+    categories = select(Category)
+
+    return _session.scalars(categories)
 
 def create_session(link: str) -> Session:
     """

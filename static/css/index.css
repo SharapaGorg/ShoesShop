@@ -75,7 +75,7 @@
 
 .result {
     height: 60px;
-    width: 300px;
+    width: calc(100% - 200px);
     /* border-top: 1px rgb(247, 241, 241) solid; */
 
 }

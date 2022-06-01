@@ -1,4 +1,4 @@
-url = "/api/shoes"
+let API = "/api/"
 
 
 // MOUNTED
@@ -80,14 +80,45 @@ function addItemToBin(imageSrc, title, price, id) {
 
 // SIDEBAR ACTIONS
 let selectedCategory = 'all'
-let categories = document.getElementsByClassName('category')
 
 function resetColor() {
-    for (let category of categories) {
+    let _categories = document.getElementsByClassName('category')
+
+    for (let category of _categories) {
         if (category.innerText.toLowerCase() !== selectedCategory) {
             category.style.background = ''
             category.style.color = ''
         }
+    }
+}
+
+function getCategory(title, id) {
+    let wrapper = createElement("li", "px-4 py-1 cursor-pointer category font-bold")
+    wrapper.innerText = title
+    wrapper.id = id
+
+    return wrapper
+}
+
+async function renderCategories() {
+    let categoriesList = document.getElementById("categories")
+    let request = await fetch(API + 'categories')
+    let categories = await request.json()
+
+    for (let category of categories) {
+        let model = getCategory(category.title, category.id)
+        categoriesList.appendChild(model)
+
+        model.addEventListener("click", () => {
+            selectedCategory = model.innerText.toLowerCase()
+    
+            renderShoes("all")
+    
+            model.style.background = 'rgb(247, 241, 241)'
+            model.style.color = '#27a74d'
+    
+            resetColor()
+        })
     }
 }
 
@@ -101,19 +132,6 @@ function getSearchData() {
 
         lastInputData = inputData
     }
-}
-
-for (let category of categories) {
-    category.addEventListener("click", () => {
-        selectedCategory = category.innerText.toLowerCase()
-
-        renderShoes()
-
-        category.style.background = 'rgb(247, 241, 241)'
-        category.style.color = '#27a74d'
-
-        resetColor()
-    })
 }
 
 
@@ -166,18 +184,18 @@ async function renderShoes(title) {
     let products = document.getElementById("products")
     products.innerHTML = ""
 
-    let resp = await fetch(url, {
+    let resp = await fetch(API + 'shoes', {
         method: 'POST',
         body: JSON.stringify({
             title: title,
             category: selectedCategory
         })
-    });
+    })
 
-    let response = await resp.json();
+    let response = await resp.json()
 
     let result = document.getElementById("result")
-    result.innerText = capitalize(selectedCategory) + " - " + response.length + " results"
+    result.innerText = capitalize(selectedCategory) + " - " + response.length + " results (" + title + ")"
 
     for (let i = 0; i < response.length; i++) {
         shoe = response[i]
@@ -246,7 +264,7 @@ signUp.addEventListener("click", () => {
     //
 })
 
-
+renderCategories()
 renderShoes('all')
 // monitor search field
 setInterval(getSearchData, 500)
