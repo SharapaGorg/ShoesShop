@@ -56,7 +56,7 @@
 
 .products {
     width: 100%;
-    height : calc(90% - 61px);
+    height: calc(90% - 61px);
 }
 
 .product {
@@ -230,10 +230,15 @@
     right: 10px;
 }
 
+.added_to_bin {
+    color: rgb(247, 241, 241) !important;
+    background: #28cb59 !important;
+}
+
 .remove_from_bin {
-    width : fit-content;
+    width: fit-content;
     font-family: 'Ubuntu', sans-serif;
-    background : rgb(247, 241, 241);
+    background: rgb(247, 241, 241);
     cursor: pointer;
     border-radius: 5px;
     font-weight: 700;
@@ -242,8 +247,8 @@
 
 .bin-list {
     padding-top: 35px;
-    height : 450px;
-    overflow-y : auto;
+    height: 450px;
+    overflow-y: auto;
 }
 
 .bin-item {
@@ -271,7 +276,7 @@
 .bin-item-price {
     color: rgb(247, 241, 241);
     font-weight: 700;
-    margin : 5px 0;
+    margin: 5px 0;
 }
 
 .bin-img-wrapper {
@@ -279,22 +284,22 @@
     width: 150px;
     background: rgb(247, 241, 241);
 
-}    
+}
 
 .bin-img {
     height: 100px;
 }
 
 .order {
-    width : 100%;
+    width: 100%;
 }
 
 .checkout {
     background: rgb(247, 241, 241);
-    color : #28cb59;
+    color: #28cb59;
     border-radius: 10px;
-    font-weight : 700;
-    width : fit-content;
+    font-weight: 700;
+    width: fit-content;
     cursor: pointer;
-    margin-top : 5px;
+    margin-top: 5px;
 }

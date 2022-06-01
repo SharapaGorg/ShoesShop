@@ -57,7 +57,8 @@ def shoes():
             'title': shoe.title,
             'price': shoe.price,
             'category': shoe.category,
-            'img' : shoe.img_src
+            'img' : shoe.img_src,
+            'id' : shoe.id
         }
 
         shoes.append(shoe)

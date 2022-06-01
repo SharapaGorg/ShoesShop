@@ -37,7 +37,7 @@ crossBin.addEventListener("click", () => {
     bin.style.display = 'none'
 })
 
-function getItem(imgSrc, title, price) {
+function getItem(imgSrc, title, price, id) {
     let itemWrapper = createElement("div", "bin-item grid grid-cols-2 justify-items-center")
     let imgWrapper = createElement("div", "bin-img-wrapper")
     let image = createElement("img", "bin-img mx-auto")
@@ -63,13 +63,18 @@ function getItem(imgSrc, title, price) {
     // remove item from bin
     removeButton.addEventListener("click", () => {
         itemWrapper.parentNode.removeChild(itemWrapper)
+        let itemInList = document.getElementById(id)
+        let addButton = itemInList.getElementsByClassName('add_to_bin')[0]
+
+        addButton.classList.remove('added_to_bin')
+        addButton.innerText = 'add +'
     })
 
     return itemWrapper
 }
 
-function addItemToBin(imageSrc, title, price) {
-    let item = getItem(imageSrc, title, price)
+function addItemToBin(imageSrc, title, price, id) {
+    let item = getItem(imageSrc, title, price, id)
     binItems.appendChild(item)
 }
 
@@ -113,7 +118,7 @@ for (let category of categories) {
 
 
 // FIGURE PRODUCT CELL
-function getProduct(imgSrc, category, title, price) {
+function getProduct(imgSrc, category, title, price, id) {
     let wrapper = createElement("div", "product")
     let image = createElement("img", "img_product mx-auto")
     let category_ = createElement("span", "cat_product ")
@@ -142,16 +147,15 @@ function getProduct(imgSrc, category, title, price) {
     headersWrapper.appendChild(price_)
 
     wrapper.appendChild(addToBin)
+    wrapper.id = id
 
     addToBin.addEventListener("click", () => {
         if (addToBin.innerText !== 'added') {
-            addItemToBin(imgSrc, title, price)
+            addItemToBin(imgSrc, title, price, id)
         }
 
         addToBin.innerText = 'added'
-
-        addToBin.style.color = 'rgb(247, 241, 241)'
-        addToBin.style.background = '#28cb59'
+        addToBin.classList.add('added_to_bin')
     })
 
     return wrapper
@@ -179,7 +183,8 @@ async function renderShoes(title) {
         shoe = response[i]
         let base = "static/assets/example.jpg"
 
-        const product = getProduct(shoe.img, shoe.category, shoe.title, shoe.price)
+        const product = getProduct(shoe.img, shoe.category, shoe.title, shoe.price, shoe.id)
+
         products.appendChild(product)
 
     }
