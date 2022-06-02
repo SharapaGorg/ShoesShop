@@ -52,7 +52,7 @@ function getItem(imgSrc, title, price, id) {
     removeButton.innerText = 'remove -'
 
     imgWrapper.appendChild(image)
-    
+
     itemDescription.appendChild(itemTitle)
     itemDescription.appendChild(itemPrice)
     itemDescription.appendChild(removeButton)
@@ -95,7 +95,7 @@ function resetColor() {
 function getCategory(title, id) {
     let wrapper = createElement("li", "px-4 py-1 cursor-pointer category font-bold")
     wrapper.innerText = title
-    wrapper.id = id
+    // wrapper.id = id
 
     return wrapper
 }
@@ -111,12 +111,12 @@ async function renderCategories() {
 
         model.addEventListener("click", () => {
             selectedCategory = model.innerText.toLowerCase()
-    
+
             renderShoes("all")
-    
+
             model.style.background = 'rgb(247, 241, 241)'
             model.style.color = '#27a74d'
-    
+
             resetColor()
         })
     }
@@ -180,7 +180,7 @@ function getProduct(imgSrc, category, title, price, id) {
 }
 
 // RENDER PRODUCT LIST (no-lazy)
-async function renderShoes(title) {
+async function renderShoes(title, sortFilter) {
     let products = document.getElementById("products")
     products.innerHTML = ""
 
@@ -188,7 +188,10 @@ async function renderShoes(title) {
         method: 'POST',
         body: JSON.stringify({
             title: title,
-            category: selectedCategory
+            category: selectedCategory,
+            sort: {
+                price : sortFilter
+            }
         })
     })
 
@@ -206,6 +209,28 @@ async function renderShoes(title) {
         products.appendChild(product)
 
     }
+}
+
+// SORTING
+let sortButton = document.getElementById("sortButton")
+let sortList = document.getElementById("sortList")
+
+// activate list of sort types
+sortButton.addEventListener("click", () => {
+    let currentDisplay = sortList.style.display === 'block'
+
+    sortList.style.display = currentDisplay ? 'none' : 'block'
+})
+
+// apply sort filters
+for (let elem of sortList.childNodes) {
+    elem.addEventListener("click", async (event) => {
+        // rerender shoes with selected sort filter
+        await renderShoes('all', elem.innerText);
+
+        // restricted parent to react
+        event.stopPropagation()
+    })
 }
 
 // AUTH MODAL WINDOW

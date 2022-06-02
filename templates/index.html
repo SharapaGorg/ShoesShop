@@ -19,7 +19,17 @@
             Result
         </div>
 
-        <div class="inline-block absolute right-[10px] sort cursor-pointer px-2 py-1">Sort by</div>
+        <div class="noselect inline-block absolute right-[10px] sort cursor-pointer px-2 py-1" id="sortButton">
+            Sort by
+            <div class="sort-list" id="sortList">
+                <li class="sort-item">
+                    low-high
+                </li>
+                <li class='sort-item'>
+                    high-low
+                </li>
+            </div>
+        </div>
 
         <div class="products grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-[35px]" id="products"></div>
     </div>
